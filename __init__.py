@@ -8,7 +8,7 @@ from os import path
 from gtts import gTTS
 from pygame import mixer
 from modules import app, cbpi, DBModel
-from thread import start_new_thread
+from _thread import start_new_thread
 
 mixer.init()
 SayIt = None
@@ -87,7 +87,7 @@ def messageEvent(message):
                 tts.save(AudioFilePath)
         except Exception as ex:
             os.remove(AudioFilePath)
-            print('SayIt - Unable to save audio file: ' + ex.message)
+            print(('SayIt - Unable to save audio file: ' + ex.message))
             return
 
         mixer.music.load(AudioFilePath)
